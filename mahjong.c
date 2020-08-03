@@ -1,6 +1,9 @@
+/* created by Ellen Spadotto */
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
+#include<windows.h>
 
 int main(){
 	char tabuleiro[10][10];
@@ -20,7 +23,7 @@ int main(){
 		printf("\nEscolha seu nivel: \n");
 		printf("\n(1)Potato: 20 min;");
 		printf("\n(2)Boring: 10 min;");
-		printf("\n(3)HardCore: 5 min\n");
+		printf("\n(3)HardCore: 5 min.\n");
 		scanf("%d", &nivel);
 
 		if(nivel == 1){
@@ -38,6 +41,8 @@ int main(){
 		}
 		system("cls");
 	}
+
+	system("cls");
 
 	for(i=0; i<10; i++){//coloca '1' nas bordas da matriz de '0'.
 		borda[0][i] = 1;
@@ -61,6 +66,7 @@ int main(){
 
 	hora1 = time(NULL);
 
+	printf("\nInforme sempre primeiro a linha(x) depois a coluna(y).\n");
 	printf("\n     0       1    2    3    4    5    6    7    8    9    10\n");
 	printf("\n	+-------------------------------------------------------+\n");
 	for(i=0; i<10; i++){
@@ -77,14 +83,13 @@ int main(){
 		}
 		printf("	|\n	|                                                       |\n");
 	}
-	printf("	+-------------------------------------------------------+\n ");
+	printf("	+-------------------------------------------------------+\n");
 
 	while(temporest > hora3){
 		hora2 = time(NULL);
 
 		hora3 = hora2 - hora1;//diferença da hora de inicio de exucução com a atual.
 
-		printf("\n%d\n", hora3);
 		scanf("%d %d", &l1, &c1);
 		scanf("%d %d", &l2, &c2);
 		l1--;
@@ -110,6 +115,8 @@ int main(){
 			borda[l2][c2+1] = 1;
 
 			system("cls");
+
+			printf("\nInforme sempre primeiro a linha(x) depois a coluna(y).\n");
 			printf("\n     0       1    2    3    4    5    6    7    8    9    10\n");
 			printf("\n	+-------------------------------------------------------+\n");
 			for(i=0; i<10; i++){
@@ -126,7 +133,7 @@ int main(){
 				}
 				printf("	|\n	|                                                       |\n");
 			}
-			printf("	+-------------------------------------------------------+\n");
+			printf("	+-------------------------------------------------------+\nTimer: %d s\n", hora3);
 		}else{
 			printf("	\nJogada invalida!\nTente novamente!");
 		}
@@ -147,7 +154,7 @@ int main(){
 	}
 	system("cls");
 
-	if(!vencedor == 100){
+	if(vencedor == 100){
 		printf("\n	  PARABENS TU VENCESTES!!!\n\n");
 	}else{
 		printf("\n	  VOCE PERDEU!\n\tACABOU O TEMPO!\n\n");
@@ -156,4 +163,3 @@ int main(){
 	system("PAUSE");
 	return 0;
 }
-
