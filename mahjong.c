@@ -12,11 +12,32 @@ int main(){
 	int l2, c2, sum2;
 	int nivel, valido = 0;
 	time_t hora1, hora2;
-	int temporest = 600, hora3 = NULL;
+	int temporest, hora3 = NULL;
 
 	srand(time(NULL));
 
-	printf("\nAtecao! Ao iniciar a partida voce tera 10 min!\n Boa sorte!!\n");
+	while(valido == 0){
+		printf("\nEscolha seu nivel: \n");
+		printf("\n(1)Potato: 20 min;");
+		printf("\n(2)Boring: 10 min;");
+		printf("\n(3)HardCore: 5 min\n");
+		scanf("%d", &nivel);
+
+		if(nivel == 1){
+			temporest = 1200;
+			valido = 1;
+		}else if(nivel == 2){
+			temporest = 600;
+			valido = 1;
+		}else if(nivel == 3){
+			temporest = 300;
+			valido = 1;
+		}else{
+			printf("\nVoce digitou um valor invalido!\n");
+			valido = 0;
+		}
+		system("cls");
+	}
 
 	for(i=0; i<10; i++){//coloca '1' nas bordas da matriz de '0'.
 		borda[0][i] = 1;
@@ -56,7 +77,7 @@ int main(){
 		}
 		printf("	|\n	|                                                       |\n");
 	}
-	printf("	+-------------------------------------------------------+\n");
+	printf("	+-------------------------------------------------------+\n ");
 
 	while(temporest > hora3){
 		hora2 = time(NULL);
